@@ -1,6 +1,6 @@
 # twig-redbean
 
-this Repositories show how you can make something with twig and redbean
+this Repositories show how you can make a recipe book with a database that is used with redbean
 
 ## techniques that ware used
 
