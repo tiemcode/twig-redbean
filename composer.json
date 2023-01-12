@@ -1,0 +1,21 @@
+{
+    "name": "timoj/controlling-recipes-872790f0-409af3dc",
+    "require": {
+        "twig/twig": "3.4"
+    },
+    "authors": [
+        {
+            "name": "timo zuidinga",
+            "email": "tzuidinga@st.noorderpoort.nl"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "helpers.php",
+            "rb.php"
+        ],
+        "classmap": [
+            "controllers/"
+        ]
+    }
+}

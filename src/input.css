@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+.easy {
+    background-color: #D7FCE3;
+    color: #165A2E;
+}
+
+.hard {
+    background-color: #FEDEDE;
+    color: #932222;
+}
+
+.medium {
+    background-color: #FEF8BB;
+    color: #7A4410;
+}

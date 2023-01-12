@@ -1,0 +1,15 @@
+{% extends "layouts/app.twig" %}
+
+
+{% block body%}
+<pre>
+	{{ dump() }}
+</pre>
+	<div class="mx-auto w-fit text-center pt-11">
+		<h1 class="font-bold text-2xl my-6">error {{number}} </h1>
+		<iframe class="mb-11" src="https://giphy.com/embed/8xYtJLE1zrzcesOTVQ" width="480" height="270" frameborder="0"></iframe>
+		<div class="h-[9%] rounded-xl bg-red-300 flex items-center justify-center">
+			<h1 class=" text-xl font-bold text-red-600 ">{{error}}</h1>
+		</div>
+	</div>
+{% endblock %}

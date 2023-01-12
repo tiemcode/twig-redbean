@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "watch": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch",
+        "php": "php -S localhost:5000 -t public"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.2.4"
+    }
+}

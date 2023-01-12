@@ -1,0 +1,35 @@
+{% extends "/layouts/app.twig" %}
+{% block body %}
+
+	<div id="content" class="flex bg-bit-gray flex-col items-center h-full ">
+		<h1 class='font-bold text-lg my-6'>Kookboek voor Buurvrouw</h1>
+		<table class=" bg-white drop-shadow-xl h-2/6 w-7/12 ">
+			<tbody>
+				<tr class="text-slate-500 border border-x-0 border-t-0 border-slate-300 bg-slate-200">
+					<th class="w-44 " align="left">
+						<p class="pl-3">Name</p>
+					</th>
+					<th class="w-40" align="middle">
+						<p>Type</p>
+					</th>
+					<th class="w-40 " align="middle">
+						<p>Level</p>
+					</th>
+				</tr>
+				{% for recipe in recipes %}
+					<tr class="border-x-0  border border-slate-100">
+						<td>
+							<a class=" pl-3 underline" href="/recipe/show&id={{ recipe.id }}">{{ recipe.name}}</a>
+						</td>
+						<td align="middle">
+							<a>{{ recipe.type }}</a>
+						</td>
+						<td align="middle">
+							<span class="{{recipe.level}} rounded-xl py-1 px-3.5">{{recipe.level}}</span>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
