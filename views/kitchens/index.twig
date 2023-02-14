@@ -2,17 +2,20 @@
 
 {% block body %}
 	<div id="content" class="flex bg-bit-gray flex-col items-center h-full ">
-		<h1 class="font-bold text-2xl my-6">kitchens</h1>
+		<div class="my-6 flex w-7/12  justify-between ">
+			<h1 class='font-bold text-xl '>kitchens</h1>
+			<a class="font-semibold text-lg rounded-md w py-1 px-3.5 bg-bit-blue  text-white" href="/kitchen/create">Create kitchen</a>
+		</div>
 		<table class=" bg-white drop-shadow-xl h-2/6 w-7/12 ">
 			<tbody>
-				<tr class="text-slate-500 border border-x-0 border-t-0 border-slate-300 bg-slate-200">
+				<tr class="text-slate-500 border h-9 border-x-0 border-t-0 border-slate-300 bg-slate-200">
 					<th class="" align="left">
 						<p class="pl-3">Name</p>
 					</th>
 					{% for kitchen in kitchens %}
-						<tr class="border-x-0  border border-slate-100">
+						<tr class="border-x-0 h-10  border border-slate-100">
 							<td>
-								<a class=" pl-3 underline" href="/kitchen/show&id={{ kitchen.id }}">{{ kitchen.name}}</a>
+								<a class=" pl-3 text-bit-blue font-semibold" href="/kitchen/show&id={{ kitchen.id }}">{{ kitchen.name}}</a>
 							</td>
 						</tr>
 					{% endfor %}

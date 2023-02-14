@@ -12,8 +12,9 @@ $path = getPath();
 $controller = $path[0] ?: "Recipe";
 $method = $path[1] ?? "index";
 
-$class = ucfirst($controller) . "Controller";
+$method .= ucfirst(strtolower($_SERVER['REQUEST_METHOD']));
 
+$class = ucfirst($controller) . "Controller";
 if (class_exists($class)) {
     $activeClass = new $class();
     if (!method_exists($activeClass, $method)) {

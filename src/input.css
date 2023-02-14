@@ -12,12 +12,12 @@ body {
     color: #165A2E;
 }
 
+.medium {
+    background-color: #FEF8BB;
+    color: #7A4410;
+}
 .hard {
     background-color: #FEDEDE;
     color: #932222;
 }
 
-.medium {
-    background-color: #FEF8BB;
-    color: #7A4410;
-}

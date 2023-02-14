@@ -1,0 +1,36 @@
+{% extends "/layouts/app.twig" %}
+
+{% block body %}
+<div class='border-x-0  border border-slate-200'>
+	<p class="font-semibold  text-3xl m-4">new Recipe</p>
+</div>
+<div id="content" class="bg-bit-gray flex justify-center h-full">
+	<form class="bg-white drop-shadow-xl flex m-6 h-[41%] flex-col w-6/12 flex-wrap items-center justify-center"
+		method="post">
+		<div class="flex mt-3 flex-col w-5/6">
+			<label for="repice">Name</label>
+			<input class=" border border-slate-200" id="recipe" type="text" name="name" placeholder="nieuw gerecht">
+		</div>
+		<div class="flex mt-3 flex-col w-5/6">
+			<label for="types">Type</label>
+			<select class="rounded-lg border border-slate-200" name="types">
+				{% for type in types %}
+				<option value="{{ type }}">{{ type|title }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="flex  mt-3 flex-col w-5/6">
+			<label for="levels">Level</label>
+			<select class=" border border-slate-200" name="level" id="levels">
+				{% for level in levels%}
+				<option value="{{ level }}">{{ level|title }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="mt-5 flex ">
+			<a class="mr-4 text-bit-blue font-bold" href="/recipe">Back</a>
+			<input class="rounded-xl py-1 px-3.5 bg-bit-blue text-white font-semibold" type="submit" name="submit" value="Create">
+		</div>
+	</form>
+</div>
+{% endblock %}

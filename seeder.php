@@ -9,52 +9,7 @@ R::setup(
 ); //for both mysql or mariaDB
 R::nuke();
 
-$recipes = [
-    [
-        'id'    => 1,
-        'name'  => 'Pannekoeken',
-        'type'  => 'dinner',
-        'level' => 'easy',
-    ],
-    [
-        'id'    => 24,
-        'name'  => 'Tosti',
-        'type'  => 'lunch',
-        'level' => 'easy',
-    ],
-    [
-        'id'    => 36,
-        'name'  => 'Boeren ommelet',
-        'type'  => 'lunch',
-        'level' => 'easy',
-    ],
-    [
-        'id'    => 47,
-        'name'  => 'Broodje Pulled Pork',
-        'type'  => 'lunch',
-        'level' => 'hard',
-    ],
-    [
-        'id'    => 5,
-        'name'  => 'Hutspot met draadjesvlees',
-        'type'  => 'dinner',
-        'level' => 'medium',
-    ],
-    [
-        'id'    => 6,
-        'name'  => 'Nasi Goreng met Babi ketjap',
-        'type'  => 'dinner',
-        'level' => 'hard',
-    ]
-];
-foreach ($recipes as $r) {
-    $recipe = R::dispense('recipes');
-    $recipe->name = $r['name'];
-    $recipe->type = $r['type'];
-    $recipe->level = $r['level'];
-    R::store($recipe);
-}
-$kithens = [
+$kitchens = [
     [
         'id' => 1,
         'name' => 'Franse keuken',
@@ -73,7 +28,7 @@ $kithens = [
         'id' => 3,
         'name' => 'Hollandse keuken',
         'description' => 'De Nederlandse keuken is met name geïnspireerd door het landbouwverleden van Nederland.
-         Alhoewel de keuken per streek kan verschillen en er regionale specialiteiten bestaan, zijn er voor 
+        Alhoewel de keuken per streek kan verschillen en er regionale specialiteiten bestaan, zijn er voor 
          Nederland typisch geachte gerechten. Nederlandse gerechten zijn vaak relatief eenvoudig en voedzaam, 
          zoals pap, Goudse kaas, pannenkoek, snert en stamppot.',
     ],
@@ -85,12 +40,63 @@ $kithens = [
         en een deel van het zuiden van Frankrijk (zoals de Provençaalse keuken en de keuken van Roussillon).',
     ],
 ];
-foreach ($kithens as $r) {
-    $kithens = R::dispense('kitchens');
-    $kithens->name = $r['name'];
-    $kithens->description = $r['description'];
-    R::store($kithens);
+foreach ($kitchens as $r) {
+    $kitchens = R::dispense('kitchen');
+    $kitchens->name = $r['name'];
+    $kitchens->description = $r['description'];
+    R::store($kitchens);
+}
+$recipes = [
+    [
+        'id'    => 1,
+        'name'  => 'Pannekoeken',
+        'type'  => 'dinner',
+        'level' => 'easy',
+        'kitchenId' => 3
+    ],
+    [
+        'id'    => 24,
+        'name'  => 'Tosti',
+        'type'  => 'lunch',
+        'level' => 'easy',
+        'kitchenId'=> 1
+    ],
+    [
+        'id'    => 36,
+        'name'  => 'Boeren ommelet',
+        'type'  => 'lunch',
+        'level' => 'easy',
+        'kitchenId' => 3
+    ],
+    [
+        'id'    => 47,
+        'name'  => 'Broodje Pulled Pork',
+        'type'  => 'lunch',
+        'level' => 'hard',
+        'kitchenId' => 4
+    ],
+    [
+        'id'    => 5,
+        'name'  => 'Hutspot met draadjesvlees',
+        'type'  => 'dinner',
+        'level' => 'medium',
+        'kitchenId' => 4
+    ],
+    [
+        'id'    => 6,
+        'name'  => 'Nasi Goreng met Babi ketjap',
+        'type'  => 'dinner',
+        'level' => 'hard',
+        'kitchenId' => 2
+    ]
+];
+foreach ($recipes as $r) {
+    $recipe = R::dispense('recipe');
+    $recipe->name = $r['name'];
+    $recipe->type = $r['type'];
+    $recipe->level = $r['level'];
+    $recipe->kitchen = R::load('kitchen', $r['kitchenId']);
+    R::store($recipe);
 }
 echo count($recipes) . " rows inserted" . PHP_EOL;
-echo count($kithens) . " rows inserted";
-      
+echo count($kitchens) . " rows inserted";

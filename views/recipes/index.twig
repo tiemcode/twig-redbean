@@ -1,11 +1,13 @@
 {% extends "/layouts/app.twig" %}
 {% block body %}
-
-	<div id="content" class="flex bg-bit-gray flex-col items-center h-full ">
-		<h1 class='font-bold text-lg my-6'>Kookboek voor Buurvrouw</h1>
-		<table class=" bg-white drop-shadow-xl h-2/6 w-7/12 ">
-			<tbody>
-				<tr class="text-slate-500 border border-x-0 border-t-0 border-slate-300 bg-slate-200">
+	<div id="content" class="flex bg-bit-gray flex-col items-center h-full  ">
+		<div class="my-6 flex w-7/12  justify-between ">
+			<h1 class='font-bold text-xl '>Kookboek voor Buurvrouw</h1>
+			<a class="font-semibold text-lg rounded-md py-1 px-3.5 bg-bit-blue  text-white" href="/recipe/create">Create post</a>
+		</div>
+		<table class=" bg-white drop-shadow-xl rounded-md w-7/12 ">
+			<tbody class="">
+				<tr class="text-slate-500 border border-x-0 border-t-0 border-slate-300 h-9 bg-slate-200">
 					<th class="w-44 " align="left">
 						<p class="pl-3">Name</p>
 					</th>
@@ -17,12 +19,12 @@
 					</th>
 				</tr>
 				{% for recipe in recipes %}
-					<tr class="border-x-0  border border-slate-100">
+					<tr class="border-x-0  h-10 border border-slate-100">
 						<td>
-							<a class=" pl-3 underline" href="/recipe/show&id={{ recipe.id }}">{{ recipe.name}}</a>
+							<a class=" pl-3 text-bit-blue font-semibold" href="/recipe/show&id={{ recipe.id }}">{{ recipe.name|capitalize}}</a>
 						</td>
 						<td align="middle">
-							<a>{{ recipe.type }}</a>
+							<a>{{ recipe.type|capitalize }}</a>
 						</td>
 						<td align="middle">
 							<span class="{{recipe.level}} rounded-xl py-1 px-3.5">{{recipe.level}}</span>

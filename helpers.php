@@ -13,7 +13,7 @@ function displayTemplate($template, $array)
 function error($errorNumber, $errorMessage)
 {
     http_response_code($errorNumber);
-    displayTemplate("error.twig", array("error" => $errorMessage , "number" => $errorNumber));
+    displayTemplate("error.twig", array("error" => $errorMessage, "number" => $errorNumber));
     exit();
 }
 

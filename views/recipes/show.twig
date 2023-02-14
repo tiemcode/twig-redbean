@@ -1,25 +1,36 @@
 {% extends "/layouts/app.twig" %}
 {% block body %}
-
-	<div id="content" class="flex bg-bit-gray flex-col items-center h-full w-full">
-		<table class="bg-white drop-shadow-xl my-8 w-3/6">
-			<tbody>
-				<tr class="py-2 bg-slate-200 text-slate-500 border border-x-0 border-t-0 border-slate-300">
-					<th class="py-2 px-3" align="left">{{recipe.name}}</th>
-				</tr>
-				<tr class='border-x-0  border border-slate-300'>
-					<td class="py-2 px-3 justify-between flex">
-						<p>type</p>
-						<p>{{recipe.type}}</p>
-					</td>
-				</tr>
-				<tr class="border-x-0  border border-slate-300">
-					<td class="py-2 px-3 justify-between flex">
-						<p class="">level</p>
-						<span class="{{recipe.level}} rounded-xl py-1 px-3.5">{{recipe.level}}</span>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+{# <pre>
+	{{ dump() }}
+</pre> #}
+<div id="content" class="flex bg-bit-gray flex-col items-center h-full w-full">
+	<a class=" mt-5 nopfont-semibold text-lg rounded-md py-1 px-3.5 bg-bit-blue  text-white"
+		href="/recipe/edit&id={{recipe.id}}">edit post</a>
+	<table class="bg-white drop-shadow-xl my-8 w-3/6">
+		<tbody>
+			<tr class="py-2 bg-slate-200 text-slate-500 border border-x-0 border-t-0 border-slate-300">
+				<th class="py-2 px-3" align="left">{{recipe.name}}</th>
+			</tr>
+			<tr>
+				<td class="py-2 px-3 justify-between flex">
+					<p>kitchen</p>
+					<a class="text-bit-blue font-semibold" href="/kitchen/show&id={{ recipe.__get('kitchen').id }}">
+						{{ recipe.__get('kitchen').name }}</a>
+				</td>
+			</tr>
+			<tr class='border-x-0  border border-slate-300'>
+				<td class="py-2 px-3 justify-between flex">
+					<p>type</p>
+					<p>{{recipe.type}}</p>
+				</td>
+			</tr>
+			<tr class="border-x-0  border border-slate-300">
+				<td class="py-2 px-3 justify-between flex">
+					<p class="">level</p>
+					<span class="{{recipe.level}} rounded-xl py-1 px-3.5">{{recipe.level}}</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 {% endblock %}
